@@ -1,0 +1,22 @@
+pipeline { 
+    agent any
+    stages {
+        stage('Clone Git') {
+            steps {
+                git 'https://github.com/RushikeshMule9921/SPE_MIN_PROJECT'
+            }
+        }
+        stage('Build Code') {
+            steps {
+                sh "chmod u+x calculator.py"
+                sh "./calculator.py"
+            }
+        }
+     stage('Test Code') {
+            steps {
+                sh "chmod u+x test.py"
+                sh "./test.py"
+            }
+        }
+    } 
+}
