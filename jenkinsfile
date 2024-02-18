@@ -29,7 +29,7 @@ pipeline {
         	   script{
         	   docker.withRegistry('','rushidocker'){
         	   	sh 'docker tag calculator_python rushikeshmule9921/calculator_python:latest'
-        	   	sh 'docker push rushikeshmule9921/calculator_python
+        	   	sh 'docker push rushikeshmule9921/calculator_python'
         	     }
         	   }
         	
