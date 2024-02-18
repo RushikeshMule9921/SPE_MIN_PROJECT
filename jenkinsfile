@@ -25,7 +25,14 @@ pipeline {
                 sh "./test.py"
             }
         }
-        stage('Build Docker Image'){
+     stage('Build Docker Image'){
+                steps{
+                    script{
+                    docker.build("${DOCKER_IMAGE_NAME}", '.')
+                    }
+                }
+     }
+        stage('Push Docker Image'){
         	steps{
         	   script{
         	   docker.withRegistry('','rushidocker'){
