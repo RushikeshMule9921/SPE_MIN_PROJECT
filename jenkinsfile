@@ -1,5 +1,11 @@
 pipeline { 
     agent any
+    
+    enviroment {
+    DOCKER_IMAGE_NAME ='calculator_python'
+    GITHUB_REPO_URL ='https://github.com/RushikeshMule9921/SPE_MIN_PROJECT.git'
+    }
+    
     stages {
         stage('Clone Git') {
             steps {
@@ -18,5 +24,17 @@ pipeline {
                 sh "./test.py"
             }
         }
+        stage('Build Docker Image){
+        	steps{
+        	   script{
+        	   docker.withRegistry('','rushidocker'){
+        	   	sh 'docker tag calculator_python rushikeshmule9921/calculator_python:latest'
+        	   	sh 'docker push rushikeshmule9921/calculator_python
+        	     }
+        	   }
+        	
+            }
+        }
     } 
+    
 }
