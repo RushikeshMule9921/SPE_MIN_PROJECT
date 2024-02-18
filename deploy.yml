@@ -19,4 +19,4 @@
         name: docker
         state: started
     - name: Running container
-      shell: docker run -it -d --name calculator_python rushikeshmule9921/calculator_python
+      shell: docker run -it -d rushikeshmule9921/calculator_python
