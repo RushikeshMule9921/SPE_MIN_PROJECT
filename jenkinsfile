@@ -3,13 +3,13 @@ pipeline {
     stages {
         stage('Clone Git') {
             steps {
-                git 'https://github.com/RushikeshMule9921/SPE_MIN_PROJECT'
+                echo "hello"
             }
         }
         stage('Build Code') {
             steps {
-                sh "chmod u+x calculator.py"
-                sh "./calculator.py"
+                sh "chmod u+x cal.py"
+                sh "./cal.py sqrt 25"
             }
         }
      stage('Test Code') {
