@@ -1,4 +1,4 @@
-FROM ubuntu:latest
+FROM python:3.9-slim
 
 # Copy calculator.py and the test file to the /app directory
 COPY cal.py /app/cal.py
